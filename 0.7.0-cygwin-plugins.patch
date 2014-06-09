@@ -1,0 +1,14 @@
+--- origsrc/lxqtplugininfo.cpp	2014-05-07 16:22:04.000000000 -0500
++++ src/lxqtplugininfo.cpp	2014-06-08 18:31:05.138011400 -0500
+@@ -77,7 +77,11 @@ QLibrary* PluginInfo::loadLibrary(const
+     path = fi.canonicalPath();
+     baseName = value("X-LxQt-Library", fi.completeBaseName()).toString();
+ 
++#ifdef Q_OS_CYGWIN
++    QString soPath = QDir(libDir).filePath(QString("cyg%2.dll").arg(baseName));
++#else
+     QString soPath = QDir(libDir).filePath(QString("lib%2.so").arg(baseName));
++#endif
+     QLibrary* library = new QLibrary(soPath);
+ 
+     if (!library->load())

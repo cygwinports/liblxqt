@@ -1,0 +1,22 @@
+inherit qt4-cmake
+
+NAME="liblxqt"
+VERSION=0.7.0
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="LXQt application library"
+DESCRIPTION="A shared library for LXQt desktop applications"
+HOMEPAGE="http://lxqt.org/"
+SRC_URI="http://lxqt.org/downloads/lxqt/${VERSION}/${NAME}-${VERSION}.tar.xz"
+SRC_DIR=.
+PATCH_URI="
+	0.7.0-cmake-install.patch
+	0.7.0-cygwin-plugins.patch
+"
+
+PKG_NAMES="liblxqt0 liblxqt-common liblxqt-devel"
+liblxqt0_REQUIRES="liblxqt-common"
+liblxqt0_CONTENTS="usr/bin/cyglxqt-0.dll"
+liblxqt_common_CONTENTS="usr/share/doc/ usr/share/lxqt/"
+liblxqt_devel_REQUIRES="libQtCore4-devel libQtGui4-devel libqtxdg-devel libX11-devel"
+liblxqt_devel_CONTENTS="usr/include/ usr/lib/ usr/share/cmake/lxqt/"
