@@ -9,6 +9,8 @@ DESCRIPTION="A shared library for LXQt desktop applications"
 HOMEPAGE="http://lxqt.org/"
 SRC_URI="http://lxqt.org/downloads/lxqt/${VERSION}/${NAME}-${VERSION}.tar.xz"
 PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/liblxqt.git/plain/liblxqt-0.8.0-cmake_libdir.patch
+	http://pkgs.fedoraproject.org/cgit/liblxqt.git/plain/liblxqt-0.8.0-qt5-path.patch
 	0.8.0-cmake-install.patch
 	0.7.0-cygwin-plugins.patch
 "
@@ -17,6 +19,6 @@ PKG_NAMES="liblxqt-qt5_0 liblxqt-qt5-common liblxqt-qt5-devel"
 liblxqt_qt5_0_REQUIRES="liblxqt-qt5-common"
 liblxqt_qt5_0_CONTENTS="usr/bin/cyglxqt-qt5-0.dll"
 liblxqt_qt5_common_CONTENTS="usr/share/doc/ usr/share/lxqt-qt5/"
-liblxqt_qt5_devel_CONTENTS="usr/include/ usr/lib/ usr/share/cmake/lxqt-qt5/"
+liblxqt_qt5_devel_CONTENTS="usr/include/ usr/lib/cmake/lxqt-qt5/ usr/lib/lib* usr/lib/pkgconfig/"
 
 export USE_QT5=1
