@@ -21,4 +21,6 @@ liblxqt_qt5_0_CONTENTS="usr/bin/cyglxqt-qt5-0.dll"
 liblxqt_qt5_common_CONTENTS="usr/share/doc/ usr/share/lxqt-qt5/"
 liblxqt_qt5_devel_CONTENTS="usr/include/ usr/lib/cmake/lxqt-qt5/ usr/lib/lib* usr/lib/pkgconfig/"
 
+CYGCMAKE_ARGS+=" -DLXQT_ETC_XDG_DIR=/etc/xdg"
+
 export USE_QT5=1
