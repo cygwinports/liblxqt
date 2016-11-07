@@ -1,0 +1,11 @@
+--- origsrc/liblxqt-0.10.0/lxqtapplication.cpp	2015-11-02 01:12:49.000000000 -0600
++++ src/liblxqt-0.10.0/lxqtapplication.cpp	2016-07-31 21:01:14.771308500 -0500
+@@ -25,6 +25,8 @@
+  *
+  * END_COMMON_COPYRIGHT_HEADER */
+ 
++#define _XOPEN_SOURCE
++#define _XOPEN_SOURCE_EXTENDED
+ #include <QDir>
+ 
+ #include "lxqtapplication.h"

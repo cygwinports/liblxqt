@@ -1,7 +1,7 @@
 inherit qt5 cmake
 
 NAME="liblxqt"
-VERSION=0.9.0
+VERSION=0.11.0
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="LXQt application library"
@@ -9,16 +9,17 @@ DESCRIPTION="A shared library for LXQt desktop applications"
 HOMEPAGE="http://lxqt.org/"
 SRC_URI="http://downloads.lxqt.org/lxqt/${VERSION}/${NAME}-${VERSION}.tar.xz"
 PATCH_URI="
-	0.8.0-cmake-install.patch
+	0.10.0-cmake-install.patch
 	0.7.0-cygwin-plugins.patch
+	0.10.0-std-c++11.patch
 "
 
-PKG_NAMES="liblxqt0 liblxqt-common liblxqt-devel"
-liblxqt0_REQUIRES="liblxqt-common"
-liblxqt0_CONTENTS="usr/bin/cyglxqt-0.dll"
-liblxqt_common_OBSOLETES="liblxqt-qt5-common"
-liblxqt_common_CONTENTS="usr/share/doc/ usr/share/lxqt/"
+PKG_NAMES="liblxqt0 liblxqt-devel"
+liblxqt0_OBSOLETES="liblxqt-common liblxqt-qt5-common"
+liblxqt0_CONTENTS="usr/bin/cyglxqt-0.dll usr/share/doc/"
 liblxqt_devel_OBSOLETES="liblxqt-qt5-devel"
 liblxqt_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/ usr/share/cmake/lxqt/"
 
-CYGCMAKE_ARGS+=" -DLXQT_ETC_XDG_DIR=/etc/xdg"
+DIFF_EXCLUDES="translations"
+
+CYGCMAKE_ARGS+=" -DLXQT_ETC_XDG_DIR=/etc/xdg -DPULL_TRANSLATIONS=OFF"
