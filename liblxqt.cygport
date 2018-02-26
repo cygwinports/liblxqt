@@ -1,13 +1,13 @@
 inherit qt5 cmake
 
 NAME="liblxqt"
-VERSION=0.11.0
+VERSION=0.12.0
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="LXQt application library"
 DESCRIPTION="A shared library for LXQt desktop applications"
 HOMEPAGE="http://lxqt.org/"
-SRC_URI="http://downloads.lxqt.org/lxqt/${VERSION}/${NAME}-${VERSION}.tar.xz"
+SRC_URI="http://downloads.lxqt.org/downloads/${NAME}/${VERSION}/${NAME}-${VERSION}.tar.xz"
 PATCH_URI="
 	0.10.0-cmake-install.patch
 	0.7.0-cygwin-plugins.patch

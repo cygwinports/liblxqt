@@ -5,9 +5,9 @@
      baseName = value("X-LxQt-Library", fi.completeBaseName()).toString();
  
 +#ifdef Q_OS_CYGWIN
-+    QString soPath = QDir(libDir).filePath(QString("cyg%2.dll").arg(baseName));
++    const QString soPath = QDir(libDir).filePath(QString("cyg%2.dll").arg(baseName));
 +#else
-     QString soPath = QDir(libDir).filePath(QString("lib%2.so").arg(baseName));
+     const QString soPath = QDir(libDir).filePath(QString("lib%2.so").arg(baseName));
 +#endif
      QLibrary* library = new QLibrary(soPath);
  
